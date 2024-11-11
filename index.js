@@ -104,8 +104,15 @@ app.get("/search/:key",async(req, res)=>{
     let result= await Product.find({
         "$or":[
             {Name:{$regex:req.params.key }},
-            {Company:{$regex:req.params.key }},
-            {Category:{$regex:req.params.key }}
+
+
+            {Email:{$regex:req.params.key }},
+            {MobileNo:{$regex:req.params.key }},
+            {Destination:{$regex:req.params.key },},
+            {Gender:{$regex:req.params.key },},
+            {Course:{$regex:req.params.key },}
+
+
         ]
        
     }) 

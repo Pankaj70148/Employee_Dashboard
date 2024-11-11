@@ -22,19 +22,20 @@ export default function Nav() {
 
       {auth?
       <ul className='nav-ul'>
-        <li>
-            <Link to ="/"> Home</Link>
+         <li>
+            <Link to ="/Home"> Home</Link>
         </li>
         <li>
-            <Link to ="/add"> add product</Link>
+            <Link to ="/"> Employee List</Link>
         </li>
         <li>
-            <Link to ="/update"> update product</Link>
+            <Link to ="/add"> create Employee</Link>
+        </li>
+        <li>
+            <Link to ="/update"> update List</Link>
         </li>
          
-        <li>
-            <Link to ="/profile"> profile</Link>
-        </li>
+       
         <li> <Link  onClick={logout} to="/signup">logout ({JSON.parse(auth).Name})</Link></li>
         
         </ul>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
-const ProductList = () => {
+const EmployeeList = () => {
    
 
     const [products,setProducts]= useState([])
@@ -48,16 +48,26 @@ const ProductList = () => {
        }
   return (
     <div className='product-list'>
-      <h1>Product List</h1>
-      <input type='text' className='search-product-box' placeholder='Search Product'
+      <h1>employe list </h1>
+      <input type='text' className='search-product-box' placeholder='Search Employee'
       onChange={searchHandle} />
       <ul>
          <li>S.No</li>
+         <li>Image</li>
+         
          <li>Name</li>
-         <li>Price</li>
-         <li>Category</li>
-         <li>Company</li>
+       
+
+         <li>Email</li>
+         <li>MobileNo</li>
+         <li>destination</li>
+         <li>Gender</li>
+         <li>Course</li>
+
+
          <li>Operation</li>
+
+       
          </ul>
         
       
@@ -66,10 +76,17 @@ const ProductList = () => {
        products.length>0 ? products.map((item,index)=>
          <ul key={item._id}>
          <li>{index+1}</li>
+         <li>{item.Image}</li>
          <li>{item.Name}</li>
-         <li>{item.Price}</li> 
-         <li>{item.Category}</li>
-         <li>{item.Company}</li>
+
+
+         <li>{item.Email}</li>
+         <li>{item.MobileNo}</li> 
+         <li>{item.Destination}</li>
+         <li>{item.Gender}</li>
+         <li>{item.Course}</li>
+
+        
          <li><button onClick={()=>deleteProduct(item._id)}>Delete</button>
          <Link to={"/update/"+item._id }>update</Link></li> 
          </ul>
@@ -86,4 +103,4 @@ const ProductList = () => {
   )
 }
 
-export default ProductList
+export default EmployeeList
