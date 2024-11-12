@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Addproduct = () => {
+const CreateEmployee = () => {
     const [Name,setName]= useState("")
 
     const [Error,setError]= useState(false)
 
     const [Email,setEmail]= useState("")
     const [MobileNo,setMobileNo]= useState("")
-    const [Destination,setDestination]= useState("Sales")
+    const [Destination,setDestination]= useState("")
     const [Gender,setGender]= useState("male")
     const [Course,setCourse]= useState("BSC")
 
@@ -19,7 +19,7 @@ const Addproduct = () => {
     console.log(!Name)
     const navigate= useNavigate()
 
-    const Addproduct=async ()=>{
+    const createEmployee=async ()=>{
         if(!Name||!Email||!MobileNo||!Destination||!Gender||!Course){
             setError(true)
             return false
@@ -49,18 +49,19 @@ const Addproduct = () => {
       Email<input type='text' placeholder='Enter Email'className='inputbox' value={Email} onChange={(e)=>setEmail(e.target.value)}></input>{Error && !Email&&<span className='invalid-input'>enter valid name</span>}
      MobileNo <input type='text' placeholder='Enter MobileNo'className='inputbox' value={MobileNo} onChange={(e)=>setMobileNo(e.target.value)}></input>{Error && !MobileNo&&<span className='invalid-input'>enter valid name</span>}
       
-      <label for="designation">Designation:</label>
+     <label for="designation">Designation:</label>
       
-      <select className='inputbox' name="designation" required>
-      <option value={Destination} >HR</option>
-      <option value={Destination}>Manager</option>
-      <option value={Destination}  >Sales</option>
+      <select className='inputbox' name="designation" onChange={(e)=>setDestination(e.target.value)} required>
+      <option value="" >Select an options</option>
+      <option value="HR" >HR</option>
+      <option value="Manager">Manager</option>
+      <option value="Sales"  >Sales</option>
     </select>
     
     <label >Gender:</label>
-    <input type="radio" id="male" name="gender" value={Gender} required/>
+    <input type="radio" id="male" name="gender" value="male" onChange={(e)=>setGender(e.target.value)} required/>
     <label for="male">M</label>
-    <input type="radio" id="female" name="gender" value={Gender} required/>
+    <input type="radio" id="female" name="gender" value="female" onChange={(e)=>setGender(e.target.value)} required/>
     <label for="female">F</label>
     <br></br>
 
@@ -68,11 +69,11 @@ const Addproduct = () => {
 
     
     <label >Course:</label>
-    <input  type="checkbox" id="mca" name="course" value={Course}/>
+    <input  type="checkbox" id="mca" name="course" value="mca" onChange={(e)=>setCourse(e.target.value)}/>
     <label for="mca">MCA</label>
-    <input type="checkbox" id="bca" name="course" value={Course}/>
+    <input type="checkbox" id="bca" name="course" value="bca" onChange={(e)=>setCourse(e.target.value)}/>
     <label for="bca">BCA</label>
-    <input type="checkbox" id="bsc" name="course" value={Course}/>
+    <input type="checkbox" id="bsc" name="course" value="bsc" onChange={(e)=>setCourse(e.target.value)}/>
     <label for="bsc">BSC</label>
     <br></br>
     <label for="imgUpload">Img Upload:</label>
@@ -80,13 +81,11 @@ const Addproduct = () => {
     <br></br>
     
 
-      {/* <input type='text' placeholder='Enter Gender'className='inputbox' value={Gender} onChange={(e)=>setGender(e.target.value)}></input>{Error && !Gender&&<span className='invalid-input'>enter valid name</span>}
-      <input type='text' placeholder='Enter Course'className='inputbox' value={Course} onChange={(e)=>setCourse(e.target.value)}></input>{Error && !Course&&<span className='invalid-input'>enter valid name</span>} */}
-
-      <button onClick={Addproduct}className='appButton'>Submit</button>
+      
+      <button onClick={createEmployee}className='appButton'>Submit</button>
 
     </div>
   )
 }
 
-export default Addproduct
+export default CreateEmployee
