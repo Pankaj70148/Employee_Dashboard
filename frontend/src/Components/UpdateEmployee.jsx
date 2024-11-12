@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useNavigate, useParams} from 'react-router-dom'
-const UpdateProduct = () => {
+const UpdateEmployee = () => {
     const [Name,setName]= useState("")
 
 
@@ -35,7 +35,7 @@ const UpdateProduct = () => {
       }
     
 
-    const updateProduct=async ()=>{
+    const updateEmployee=async ()=>{
        
         console.log(Name,Email,MobileNo)
       
@@ -64,16 +64,17 @@ const UpdateProduct = () => {
 
       <label for="designation">Designation:</label>
       
-      <select className='inputbox' name="designation" required>
-      <option value={Destination} >HR</option>
-      <option value={Destination}>Manager</option>
-      <option value={Destination}  >Sales</option>
+      <select className='inputbox' name="designation" onChange={(e)=>setDestination(e.target.value)} required>
+      <option value="" >Select an options</option>
+      <option value="HR" >HR</option>
+      <option value="Manager">Manager</option>
+      <option value="Sales"  >Sales</option>
     </select>
     
     <label >Gender:</label>
-    <input type="radio" id="male" name="gender" value={Gender} required/>
+    <input type="radio" id="male" name="gender" value="male" onChange={(e)=>setGender(e.target.value)} required/>
     <label for="male">M</label>
-    <input type="radio" id="female" name="gender" value={Gender} required/>
+    <input type="radio" id="female" name="gender" value="female" onChange={(e)=>setGender(e.target.value)} required/>
     <label for="female">F</label>
     <br></br>
 
@@ -81,11 +82,11 @@ const UpdateProduct = () => {
 
     
     <label >Course:</label>
-    <input  type="checkbox" id="mca" name="course" value={Course}/>
+    <input  type="checkbox" id="mca" name="course" value="mca" onChange={(e)=>setCourse(e.target.value)}/>
     <label for="mca">MCA</label>
-    <input type="checkbox" id="bca" name="course" value={Course}/>
+    <input type="checkbox" id="bca" name="course" value="bca" onChange={(e)=>setCourse(e.target.value)}/>
     <label for="bca">BCA</label>
-    <input type="checkbox" id="bsc" name="course" value={Course}/>
+    <input type="checkbox" id="bsc" name="course" value="bsc" onChange={(e)=>setCourse(e.target.value)}/>
     <label for="bsc">BSC</label>
     <br></br>
     <label for="imgUpload">Img Upload:</label>
@@ -93,10 +94,10 @@ const UpdateProduct = () => {
     <br></br>
     
       
-      <button onClick={updateProduct}className='appButton'>Update</button>
+      <button onClick={updateEmployee}className='appButton'>Update</button>
 
     </div>
   )
 }
 
-export default UpdateProduct
+export default UpdateEmployee
