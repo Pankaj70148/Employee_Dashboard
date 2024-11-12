@@ -3,7 +3,7 @@ const app= express()
 const cors= require("cors")
 require("./db/config")
 const User= require("./db/User") 
-const Product= require("./db/products") 
+const Product= require("./db/Employee") 
 const Jwt= require("jsonwebtoken")
 const  JwtKey= "e-comm"
 
